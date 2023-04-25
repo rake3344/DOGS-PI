@@ -1,0 +1,39 @@
+.filters select {
+    background-color: #f8f8f8;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .filters select:hover {
+    background-color: #ddd;
+  }
+  
+  .filters select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #aaa;
+  }
+  
+  .filters option {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .filters .icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    pointer-events: none;
+    fill: #666;
+  }

@@ -5,6 +5,9 @@ import { getDogs, getTemperaments, filterByTemperament, orderByName, orderByWeig
 import Cards from '../Cards/Cards'
 import "./Home.css"
 import Paginate from '../Paginate/Paginate'
+import Filters from '../Filters/Filters'
+import Navbar from '../Navbar/Navbar'
+import { Link } from 'react-router-dom'
 
 export default function () {
 
@@ -12,45 +15,50 @@ export default function () {
   useEffect(() => {
     dispatch(getDogs())
   }, [dispatch])
-  
+
   const allDogs = useSelector(state => state.dogs)
-  const temperaments = useSelector(state => state.temperaments)
 
 
-  const [ actualPage, setActualPage ] = useState(1)
-  const [ dogsPerPage, setDogsPerPage ] = useState(6)
+  const [actualPage, setActualPage] = useState(1)
+  const [dogsPerPage, setDogsPerPage] = useState(6)
   const lastIndex = actualPage * dogsPerPage;
   const firstIndex = lastIndex - dogsPerPage;
   const currentDogs = allDogs?.slice(firstIndex, lastIndex)
-  console.log(currentDogs);
+
 
   const paginate = (pageNumber) => {
     setActualPage(pageNumber)
   }
-  
-  
-  
 
-
+  
   return (
     <div className='box'>
-      <div className='cards'>
-        {
+      <Navbar />
+      <div>
+        <div className='filters'>
+          <Filters />
+        </div>
+        <div className='cards'>
+          {
             currentDogs?.map((dog) => {
-                return (
-                  
-                    <Cards
-                        key={dog.id}
-                        name={dog.name}
-                        image={dog.image}
-                        temperaments={dog.temperaments}
-                        weight={dog.weight}
-                    />
-                )
+              return (
+                <Link to={`/dog/${dog.id}`} className='link2'>
+                  <Cards
+                    key={dog.id}
+                    name={dog.name}
+                    image={dog.image}
+                    temperaments={dog.temperaments}
+                    weight={dog.weight}
+                  />
+                </Link>
+              )
             })
-        }
+          }
+        </div>
+        <div className="paginate">
+          <Paginate dogsPerPage={dogsPerPage} allDogs={allDogs?.length} paginate={paginate} />
+        </div>
       </div>
-      <Paginate dogsPerPage= {dogsPerPage} allDogs={allDogs?.length} paginate={paginate} />
     </div>
   )
 }

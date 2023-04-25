@@ -64,35 +64,27 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case ORDER_BY_NAME:
-      const dogsOrder =
+      const orderedDogs =
         action.payload === "A-Z"
           ? state.allDogs.sort((a, b) => {
-              if (a.name > b.name) return 1;
-              if (a.name < b.name) return -1;
-              return 0;
+              return a.name.localeCompare(b.name);
             })
           : state.allDogs.sort((a, b) => {
-              if (a.name > b.name) return -1;
-              if (a.name < b.name) return 1;
-              return 0;
+              return b.name.localeCompare(a.name);
             });
       return {
         ...state,
-        dogs: dogsOrder,
+        dogs: orderedDogs,
       };
 
     case ORDER_BY_WEIGHT:
       const orderedWeight =
-        action.payload === "Min-Max"
+        action.payload === "Min-Weight"
           ? state.allDogs.sort((a, b) => {
-              if (a.weight > b.weight) return 1;
-              if (a.weight < b.weight) return -1;
-              return 0;
+              return parseInt(a.weight[0]) - parseInt(b.weight[1]);
             })
           : state.allDogs.sort((a, b) => {
-              if (a.weight > b.weight) return -1;
-              if (a.weight < b.weight) return 1;
-              return 0;
+              return parseInt(b.weight[0]) - parseInt(a.weight[1]);
             });
       return {
         ...state,
