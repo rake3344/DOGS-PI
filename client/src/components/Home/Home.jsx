@@ -14,9 +14,11 @@ export default function () {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getDogs())
+    dispatch(getTemperaments())
   }, [dispatch])
 
   const allDogs = useSelector(state => state.dogs)
+  const temperaments = useSelector(state => state.temperaments)
 
 
   const [actualPage, setActualPage] = useState(1)
@@ -24,6 +26,25 @@ export default function () {
   const lastIndex = actualPage * dogsPerPage;
   const firstIndex = lastIndex - dogsPerPage;
   const currentDogs = allDogs?.slice(firstIndex, lastIndex)
+
+  const [ orden, setOrden ] = useState('')
+
+    const handleFilterTemperament = (e) => {
+        e.preventDefault()
+        dispatch(filterByTemperament(e.target.value))
+    }
+
+    const handleOrderName = (e) => {
+        e.preventDefault()
+        dispatch(orderByName(e.target.value))
+        setOrden(e.target.value)
+    }
+
+    const handleOrderWeight = (e) => {
+        e.preventDefault()
+        dispatch(orderByWeight(e.target.value))
+        setOrden(e.target.value)
+    }
 
 
   const paginate = (pageNumber) => {
@@ -36,8 +57,32 @@ export default function () {
       <Navbar />
       <div>
         <div className='filters'>
-          <Filters />
+        <select onChange={handleOrderName}>
+                <option value="">Filter By Name</option>
+                <option value="A-Z">A-Z</option>
+                <option value="Z-A">Z-A</option>
+            </select>
+
+            <select onChange={handleOrderWeight}>
+                <option value="">Filter By Weight</option>
+                <option value="Max-Weight">Max</option>
+                <option value="Min-Weight">Min</option>
+            </select>
+
+            <select onChange={handleFilterTemperament}>
+                <option value="" >Filter By Temperament</option>
+                <option value="All">All</option>
+                {
+                    temperaments?.map((temperament) => {
+                        return (
+                            <option value={temperament.name} key={temperament.id}>{temperament.name}</option>
+                        )
+                    })
+                }
+            </select>
         </div>
+
+
         <div className='cards'>
           {
             currentDogs?.map((dog) => {

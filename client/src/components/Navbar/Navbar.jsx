@@ -33,8 +33,9 @@ export default function Navbar() {
                 <input type="text" onChange={handleInput} placeholder='Search...' className='input'/>
                 <button className='submit' type='submit' onClick={handleSubmit}>Search</button>
             </div>
-            <div className='logo'>
-                <img src="https://media.giphy.com/media/m9pQ6KapT7Cq3DQ5DZ/giphy.gif" alt="" />
+            <div className='btnCreate'>
+                {/* <img src="https://media.giphy.com/media/m9pQ6KapT7Cq3DQ5DZ/giphy.gif" alt="" /> */}
+                <button className='btnCreate'>Create a Dog</button>
             </div>
         </nav>
     )

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 import './Detail.css'
 import Loader from '../Loader/Loader'
+import Navbar from '../Navbar/Navbar'
 
 export default function Detail() {
 
@@ -52,7 +53,8 @@ export default function Detail() {
 
         return (
             <>
-                <button className='button' onClick={handleClick}>Back</button>
+                <Navbar />
+                <button className='button-back' onClick={handleClick}>Back</button>
                 <div className='container2'>
                     <div className='detail'>
                         <img src={dogImage} alt={dogName} />
