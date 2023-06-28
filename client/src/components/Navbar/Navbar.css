@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@200;400&family=Roboto+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@200;400&family=Roboto+Mono&display=swap");
 .navbar {
     /* background-color: #EF5350 ; */
     /* background-color: #F5B7B1 ; */
     /* background-color: #1f1f1f; */
+    background-color: #1f1f1f;
     color: #fff;
     padding: 0.5rem 1rem;
     margin-bottom: 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -26,7 +27,8 @@
 }
 
 .navbar .title .link {
-    color: #1f1f1f;
+    /* color: #1f1f1f; */
+    color: #fff;
     text-decoration: none;
 }
 
@@ -49,16 +51,16 @@
     border: 1px solid #fff;
 }
 
-.navbar  .search .submit {
+.navbar .search .submit {
     width: 120px;
     height: 30px;
     border-radius: 8%;
     border: none;
     outline: none;
-    /* background-color: #1f1f1f; */
-    background-color: #F7DC6F;
+    background-color: #f9e79f;
+    /* background-color: #F7DC6F; */
     /* color: #fff; */
-    color: black;
+    color: #1f1f1f;
     font-size: 1rem;
     cursor: pointer;
     margin-left: 10px;
@@ -72,10 +74,10 @@
     border-radius: 5%;
     border: none;
     outline: none;
-    /* background-color: #1f1f1f; */
-    background-color: #F7DC6F;
+    background-color: #1f1f1f;
+    /* background-color: #F7DC6F; */
     /* color: #fff; */
-    color: black;
+    color: #fff;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.25s;
@@ -83,14 +85,13 @@
 }
 
 .btnCreate:hover {
-    background-color: #F5B7B1;
+    background-color: #f5b7b1;
     color: #fff;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-
     }
 
     .navbar .search {
