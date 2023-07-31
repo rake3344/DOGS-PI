@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -7,11 +7,8 @@ body {
   /* background-color: #FFF176; */
   /* background-color: #FDD835; */
   /* background-color: #FCF3CF; */
-  background: linear-gradient(45deg, #f7dc6f, #FDEBD0,#F9E79F, #D5F5E3 );
+  /* background: linear-gradient(45deg, #f7dc6f, #FDEBD0,#F9E79F, #D5F5E3 ); */
+  background: #f0e09f;
   width: 100%;
   height: 100vh;
-
-
 }
-
-
